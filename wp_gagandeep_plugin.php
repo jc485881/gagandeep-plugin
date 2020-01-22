@@ -42,15 +42,14 @@ function process(){
 
 
 //generating table
-class MyPlugin {
-        static function install() {
+ function install() {
            global $wpdb;
 		    require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-           $table_name = $wpdb->prefix . 'my_table';
+           
  
  $charset_collate = $wpdb->get_charset_collate();
  
- $sql = "CREATE TABLE $table_name (
+ $sql = "CREATE TABLE 'my_table' (
      id mediumint(9) NOT NULL AUTO_INCREMENT,
      time datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
      fname varchar(120) DEFAULT NULL,
@@ -63,7 +62,7 @@ class MyPlugin {
 
  dbDelta( $sql );
         }
-    }
+    
  
     register_activation_hook(__FILE__, array( 'MyPlugin', 'install' ) );
 
