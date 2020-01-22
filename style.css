@@ -1,0 +1,22 @@
+<style>
+  div {
+        margin-bottom:10px;
+		font-family: "Roboto", Helvetica, Arial, sans-serif;
+		font-weight: 100;
+		font-size: 14px;
+		line-height: 30px;
+		color: #777;
+  
+	
+    }
+  container {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+    input{
+        margin-bottom:20px;
+		
+    }
+    </style>
