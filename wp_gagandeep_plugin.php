@@ -45,7 +45,7 @@ function process(){
  function install() {
            global $wpdb;
 		    require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-           
+           if (count($wpdb->get_var('SHOW TABLE LIKE "wp_custom_plugin"')) == 0 )
  
  $charset_collate = $wpdb->get_charset_collate();
  
@@ -64,7 +64,7 @@ function process(){
         }
     
  
-    register_activation_hook(__FILE__, array( 'MyPlugin', 'install' ) );
+    register_activation_hook(__FILE__, array( 'install' ) );
 
 function deactivate_table() {
 	  global $wpdb;
