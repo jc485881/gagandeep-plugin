@@ -76,7 +76,7 @@ function registration_form( $fname, $lname, $email, $bio ) {
 		include_once PLUGIN_DIR_PATH."/style.css";
  
     echo '
-    <form action="/mentalwellbeing/wp-content/plugins/gaganpluginform/process.php" method="post">
+    <form action="/agecare/wp-content/plugins/gagandeep plugin/process.php"	method="post">
 
     <div>
     <label>First Name</label>
