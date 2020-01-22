@@ -2,8 +2,8 @@
 <?php
 
 /*
-Plugin Name: Gagandeep plugin
-Plugin URI: http://wordpress.org/plugins/gaganplugin/
+Plugin Name: Gagandeep_plugin
+Plugin URI: http://wordpress.org/plugins/gagandeep_plugin/
 Description:  This is my first Plugin in wordpress
 Author: Gagandeep
 Version: 1.0
@@ -21,16 +21,16 @@ define ("PLUGIN_VERSION","1.0");
 
 
 function add_my_custom_menu() {
-    add_menu_page("gaganpluginform",
-	"gaganplugin Form",
+    add_menu_page("gagandeep_pluginform",
+	"gagandeep_plugin Form",
 	"manage_options", 
-	"gaganpluginplugin",
-	"gaganplugin_admin_view",
+	"gagandeep_pluginplugin",
+	"gagandeep_plugin_admin_view",
 	"dashicon-dashboard",3);
 	}
 add_action("admin_menu", "add_my_custom_menu");
 
-function gaganplugin_admin_view(){
+function gagandeep_plugin_admin_view(){
 	// give the message while click on plugin after installationn
     echo "Create a page & see the form over there";
 }
@@ -76,7 +76,7 @@ function registration_form( $fname, $lname, $email, $bio ) {
 		include_once PLUGIN_DIR_PATH."/style.css";
  
     echo '
-    <form action="/agecare/wp-content/plugins/gagandeep plugin/process.php"	method="post">
+    <form action="/agecare/wp-content/plugins/gagandeep_plugin/process.php"	method="post">
 
     <div>
     <label>First Name</label>

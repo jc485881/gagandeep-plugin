@@ -4,7 +4,7 @@ function Connect()
 	$dbhost = "localhost";
 	$dbuser = "root";
 	$dbpass = "";
-	$dbname = "wp_mentalwellbeing";
+	$dbname = "agecare";
 	
 	$conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname 			);
 	return $conn	;
