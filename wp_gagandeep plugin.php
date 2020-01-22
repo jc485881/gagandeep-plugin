@@ -31,11 +31,12 @@ function add_my_custom_menu() {
 add_action("admin_menu", "add_my_custom_menu");
 
 function gaganplugin_admin_view(){
-
-    echo "gaganplugin Form Coming Soon";
+	// give the message while click on plugin after installationn
+    echo "Create a page & see the form over there";
 }
 
 function processpage(){
+	// this is process page function
     include_once PLUGIN_DIR_PATH."/process.php";
 }
 
