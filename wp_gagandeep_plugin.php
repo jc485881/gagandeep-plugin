@@ -41,10 +41,11 @@ function process(){
 }
 
 
-
+//generating table
 class MyPlugin {
         static function install() {
            global $wpdb;
+		    require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
            $table_name = $wpdb->prefix . 'my_table';
  
  $charset_collate = $wpdb->get_charset_collate();
@@ -59,7 +60,7 @@ class MyPlugin {
      UNIQUE KEY id (id)
  ) $charset_collate;";
  
- require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+
  dbDelta( $sql );
         }
     }
