@@ -35,7 +35,7 @@ function gagandeep_plugin_admin_view(){
     echo "Create a page & see the form over there";
 }
 
-function processpage(){
+function process(){
 	// this is process page function
     include_once PLUGIN_DIR_PATH."/process.php";
 }
