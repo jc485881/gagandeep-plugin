@@ -1,4 +1,80 @@
+<html>
+<body>
+<!-- CSS -->
+<style>
+.myForm {
+font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+font-size: 1em;
+width: 50em;
+padding: 1em;
+border: 0px solid #ccc;
+}
 
+.myForm * {
+box-sizing: border-box;
+}
+
+.myForm fieldset {
+border: none;
+padding: 0;
+}
+
+.myForm legend,
+.myForm label {
+padding: 0;
+font-weight: bold;
+}
+
+.myForm label.choice {
+font-size: 0.9em;
+font-weight: normal;
+}
+
+.myForm label {
+text-align: left;
+display: block;
+}
+
+.myForm input[type="text"],
+.myForm input[type="tel"],
+.myForm input[type="email"],
+.myForm input[type="datetime-local"],
+.myForm select,
+.myForm textarea {
+
+width: 60%;
+border: 1px solid #ccc;
+font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+font-size: 1.5em;
+padding: 0.3em;
+}
+
+.myForm textarea {
+height: 100px;
+}
+
+.myForm input[type="radio"],
+.myForm input[type="checkbox"] {
+margin-left: 40%;
+}
+
+.myForm button {
+padding: 1em;
+border-radius: 0.5em;
+background: #eee;
+border: none;
+font-weight: bold;
+margin-left: 40%;
+margin-top: 1.8em;
+}
+
+.myForm button:hover {
+background: #ccc;
+cursor: pointer;
+}
+</style>
+</body>
+</html>
 <?php
 
 /*
@@ -76,29 +152,69 @@ function registration_form( $fname, $lname, $email, $bio ) {
 		include_once PLUGIN_DIR_PATH."/style.css";
  
     echo '
-    <form action="/agecare/wp-content/plugins/gagandeep_plugin/process.php"	method="post">
+    <form class="myForm" method="get" enctype="application/x-www-form-urlencoded" action="/html/codes/html_form_handler.cfm">
 
-    <div>
-    <label>First Name</label>
-    <input type="text" name="fname" value="">
-    </div>
-     
-    <div>
-    <label>Last Name</label>
-    <input type="text" name="lname" value="">
-    </div>
-     
-    <div>
-    <label>Email</label>
-    <input type="email" name="email" value="">
-    </div>
-     
-    <div>
-    <label>About</label>
-    <textarea name="bio"></textarea>
-    </div>
-    <input type="submit" name="submit" value="submit"/>
-    </form>
+<p>
+<label>Name
+<input type="text" name="customer_name" required>
+</label> 
+</p>
+
+<p>
+<label>Phone 
+<input type="tel" name="phone_number">
+</label>
+</p>
+
+<p>
+<label>Email 
+<input type="email" name="email_address">
+</label>
+</p>
+
+<fieldset>
+<legend>Which taxi do you require?</legend>
+<p><label class="choice"> <input type="radio" name="taxi" required value="car"> Car </label></p>
+<p><label class="choice"> <input type="radio" name="taxi" required value="van"> Van </label></p>
+<p><label class="choice"> <input type="radio" name="taxi" required value="tuktuk"> Tuk Tuk </label></p>
+</fieldset>
+
+<fieldset>
+<legend>Extras</legend>
+<p><label class="choice"> <input type="checkbox" name="extras" value="baby"> Baby Seat </label></p>
+<p><label class="choice"> <input type="checkbox" name="extras" value="wheelchair"> Wheelchair Access </label></p>
+<p><label class="choice"> <input type="checkbox" name="extras" value="tip"> Stock Tip </label></p>
+</fieldset>
+
+<p>
+<label>Pickup Date/Time
+<input type="datetime-local" name="pickup_time" required>
+</label>
+</p>
+	
+
+
+<p>
+<label>Dropoff Place
+<input type="text" name="dropoff_place" required list="destinations">
+</label>
+
+<datalist id="destinations">
+<option value="Airport">
+<option value="Beach">
+<option value="Fred Flinstones House">
+</datalist>
+</p>
+
+<p>
+<label>Special Instructions
+<textarea name="comments" maxlength="500"></textarea>
+</label>
+</p>
+
+<p><button>Submit Booking</button></p>
+
+</form>
     ';
 }
 
