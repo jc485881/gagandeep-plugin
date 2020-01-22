@@ -21,7 +21,12 @@ define ("PLUGIN_VERSION","1.0");
 
 
 function add_my_custom_menu() {
-    add_menu_page("gaganpluginform", "gaganplugin Form", "manage_options", "gaganpluginplugin","gaganplugin_admin_view","dashicon-dashboard",11);
+    add_menu_page("gaganpluginform",
+	"gaganplugin Form",
+	"manage_options", 
+	"gaganpluginplugin",
+	"gaganplugin_admin_view",
+	"dashicon-dashboard",3);
 	}
 add_action("admin_menu", "add_my_custom_menu");
 
