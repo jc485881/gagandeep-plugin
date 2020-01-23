@@ -129,9 +129,13 @@ function process(){
      id mediumint(9) NOT NULL AUTO_INCREMENT,
      time datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
      fname varchar(120) DEFAULT NULL,
-	 lname varchar(120) DEFAULT NULL,
+	 phone int(10) DEFAULT NULL, 
 	 email varchar(120) DEFAULT NULL,
-	 bio varchar(500) DEFAULT NULL,
+	 taxi varchar(120) DEFAULT NULL;
+	 extras varchar(120) DEFAULT NULL;
+	 pplace varchar(120) DEFAULT NULL;
+	 dplace varchar(120) DEFAULT NULL;	 
+	 comments varchar(500) DEFAULT NULL,
      UNIQUE KEY id (id)
  ) $charset_collate;";
  
