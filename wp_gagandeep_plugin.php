@@ -152,7 +152,7 @@ function deactivate_table() {
    }
 	register_deactivation_hook(__FILE__,"deactivate_table");
 
-function registration_form( $fname, $lname, $email, $bio ) {
+function registration_form( $fname,$phone,$email,$taxi,$extras,$pplace,$dpalce,$comments ) {
 		include_once PLUGIN_DIR_PATH."/style.css";
  
     echo '
@@ -230,7 +230,7 @@ function registration_form( $fname, $lname, $email, $bio ) {
 
 function custom_registration_shortcode() {
 	ob_start();
-	registration_form( $fname, $lname, $email, $bio );
+	registration_form( fname,$phone,$email,$taxi,$extras,$pplace,$dpalce,$comments );
 	return ob_get_clean();
 	}
 	add_shortcode( 'cr_custom_registration', 'custom_registration_shortcode' );
