@@ -156,19 +156,19 @@ function registration_form( $fname, $lname, $email, $bio ) {
 
 <p>
 <label>Name
-<input type="text" name="customer_name" required>
+<input type="text" name="fname" required>
 </label> 
 </p>
 
 <p>
 <label>Phone 
-<input type="tel" name="phone_number">
+<input type="tel" name="phone">
 </label>
 </p>
 
 <p>
 <label>Email 
-<input type="email" name="email_address">
+<input type="email" name="email">
 </label>
 </p>
 
@@ -186,17 +186,22 @@ function registration_form( $fname, $lname, $email, $bio ) {
 <p><label class="choice"> <input type="checkbox" name="extras" value="tip"> Stock Tip </label></p>
 </fieldset>
 
-<p>
-<label>Pickup Date/Time
-<input type="datetime-local" name="pickup_time" required>
-</label>
-</p>
-	
 
+	
+<p>
+<label>Pickup Place
+<select id="pickup_place" name="pplace">
+<option value="" selected="selected">Select One</option>
+<option value="office" >Taxi Office</option>
+<option value="town_hall" >Town Hall</option>
+<option value="telepathy" >Well Guess!</option>
+</select>
+</label> 
+</p>	
 
 <p>
 <label>Dropoff Place
-<input type="text" name="dropoff_place" required list="destinations">
+<input type="text" name="dplace" required list="destinations">
 </label>
 
 <datalist id="destinations">
@@ -211,7 +216,8 @@ function registration_form( $fname, $lname, $email, $bio ) {
 <textarea name="comments" maxlength="500"></textarea>
 </label>
 </p>
-
+<input type="submit" name="submit" value="submit"/>
+    
 <p><button>Submit Booking</button></p>
 
 </form>
