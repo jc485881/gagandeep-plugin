@@ -134,6 +134,7 @@ function process(){
 	 taxi varchar(120) DEFAULT NULL,
 	 extras varchar(120) DEFAULT NULL,
 	 B_S_required int(10) DEFAULT NULL,
+	 dplace varchar(120) DEFAULT NULL,
 	 comments varchar(500) DEFAULT NULL,
      UNIQUE KEY id (id)
  ) $charset_collate;";
@@ -151,7 +152,7 @@ function deactivate_table() {
    }
 	register_deactivation_hook(__FILE__,"deactivate_table");
 
-function registration_form( $fname, $lname, $email, $taxi, $extras, $B_S_required, $comments ) {
+function registration_form( $fname, $lname, $email, $taxi, $extras, $B_S_required, $dplace, $comments ) {
 		include_once PLUGIN_DIR_PATH."/style.css";
  
     echo '
@@ -193,12 +194,24 @@ function registration_form( $fname, $lname, $email, $taxi, $extras, $B_S_require
 			<option value="3">
 			</datalist></p>
 			
-			
 			<p><label class="choice"> <input type="radio" name="extras" required value="van"> Wheelchair </label></p>
 			<p><label class="choice"> <input type="radio" name="extras" required value="van"> Stock tip </label></p>
 		
 		</fieldset>
 	</div>
+	<p>
+<label>Dropoff Place
+<input type="text" name="dplace" required list="destinations">
+</label>
+
+<datalist id="destinations">
+<option value="Airport">
+<option value="Beach">
+<option value="Fred Flinstones House">
+<option> <input type="text" name="dplace">
+</datalist>
+</p>
+	
      
     <div>
     <label>Any Other Comments/Information</label>
@@ -211,7 +224,7 @@ function registration_form( $fname, $lname, $email, $taxi, $extras, $B_S_require
 
 function custom_registration_shortcode() {
 	ob_start();
-	registration_form( $fname, $lname, $email, $taxi, $extras,$B_S_required, $comments );
+	registration_form( $fname, $lname, $email, $taxi, $extras,$B_S_required, $dplace, $comments );
 	return ob_get_clean();
 	}
 	add_shortcode( 'cr_custom_registration', 'custom_registration_shortcode' );
