@@ -186,8 +186,8 @@ function registration_form( $fname, $lname, $email, $taxi, $extras, $B_S_require
 		<fieldset>
 			<label>Extras</label>
 			<p><label class="choice"> <input type="radio" name="extras" required value="car"> Baby Seat </label></p>
-			<p><lable>NO. of Baby Seats</lable>
-			<input type="text" name="B_S_required"></p>
+			<p><lable class="choice">NO. of Baby Seats</lable>
+			<input style="width:50px; height:40px;" type="text" name="B_S_required"></p>
 			<p><label class="choice"> <input type="radio" name="extras" required value="van"> Wheelchair </label></p>
 			<p><label class="choice"> <input type="radio" name="extras" required value="van"> Stock tip </label></p>
 		
