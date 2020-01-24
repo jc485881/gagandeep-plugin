@@ -132,8 +132,9 @@ function process(){
 	 lname varchar(120) DEFAULT NULL,
 	 email varchar(120) DEFAULT NULL,
 	 taxi varchar(120) DEFAULT NULL,
-	 extras[] varchar(120) DEFAULT NULL,
-	 bio varchar(500) DEFAULT NULL,
+	 extras varchar(120) DEFAULT NULL,
+	 B_S_required int(10) DEFAULT NULL,
+	 comments varchar(500) DEFAULT NULL,
      UNIQUE KEY id (id)
  ) $charset_collate;";
  
@@ -150,7 +151,7 @@ function deactivate_table() {
    }
 	register_deactivation_hook(__FILE__,"deactivate_table");
 
-function registration_form( $fname, $lname, $email, $taxi, $extras[], $bio ) {
+function registration_form( $fname, $lname, $email, $taxi, $extras, $B_S_required, $comments ) {
 		include_once PLUGIN_DIR_PATH."/style.css";
  
     echo '
@@ -183,16 +184,19 @@ function registration_form( $fname, $lname, $email, $taxi, $extras[], $bio ) {
 	
 	<div>
 		<fieldset>
-			<label>extras</label>
-			<p><label class="choice"> <input type="checkbox" name="extras[]" value="baby"> Baby Seat </label></p>
-			<p><label class="choice"> <input type="checkbox" name="extras[]" value="wheelchair"> Wheelchair Access </label></p>
-			<p><label class="choice"> <input type="checkbox" name="extras[]" value="tip"> Stock Tip </label></p>
+			<label>Extras</label>
+			<p><label class="choice"> <input type="radio" name="extras" required value="car"> Baby Seat </label></p>
+			<p><lable>NO. of Baby Seats</lable>
+			<input type="text" name="B_S_required"></p>
+			<p><label class="choice"> <input type="radio" name="extras" required value="van"> Wheelchair </label></p>
+			<p><label class="choice"> <input type="radio" name="extras" required value="van"> Stock tip </label></p>
+		
 		</fieldset>
 	</div>
      
     <div>
-    <label>About</label>
-    <textarea name="bio"></textarea>
+    <label>Any Other Comments/Information</label>
+    <textarea name="comments"></textarea>
     </div>
     <input type="submit" name="submit" value="submit"/>
     </form>  
@@ -201,7 +205,7 @@ function registration_form( $fname, $lname, $email, $taxi, $extras[], $bio ) {
 
 function custom_registration_shortcode() {
 	ob_start();
-	registration_form( $fname, $lname, $email, $taxi, $extras[], $bio );
+	registration_form( $fname, $lname, $email, $taxi, $extras,$B_S_required, $comments );
 	return ob_get_clean();
 	}
 	add_shortcode( 'cr_custom_registration', 'custom_registration_shortcode' );
