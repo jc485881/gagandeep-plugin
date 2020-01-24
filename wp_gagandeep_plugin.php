@@ -186,7 +186,7 @@ function registration_form( $fname, $lname, $email, $taxi, $extras, $B_S_require
 	<div>
 		<fieldset>
 			<label>Extras</label>
-			<p><label class="choice"> <input type="radio" name="extras" required value="car"> Baby Seat </label><label>NO. of Baby Seats</label>
+			<p><label class="choice"> <input type="radio" name="extras" required value="Baby Seat"> Baby Seat </label><label>NO. of Baby Seats</label>
 			<input style="width:100px; height:40px;" type="number" name="B_S_required" value="" list="nseats">
 			<datalist id="nseats">
 			<option value="1">
@@ -194,8 +194,8 @@ function registration_form( $fname, $lname, $email, $taxi, $extras, $B_S_require
 			<option value="3">
 			</datalist></p>
 			
-			<p><label class="choice"> <input type="radio" name="extras" required value="van"> Wheelchair </label></p>
-			<p><label class="choice"> <input type="radio" name="extras" required value="van"> Stock tip </label></p>
+			<p><label class="choice"> <input type="radio" name="extras" required value="Wheelchair"> Wheelchair </label></p>
+			<p><label class="choice"> <input type="radio" name="extras" required value="Stock tip"> Stock tip </label></p>
 		
 		</fieldset>
 	</div>
@@ -208,7 +208,7 @@ function registration_form( $fname, $lname, $email, $taxi, $extras, $B_S_require
 <option value="Airport">
 <option value="Beach">
 <option value="Fred Flinstones House">
-<option> <input type="text" name="dplace">
+
 </datalist>
 </p>
 	
