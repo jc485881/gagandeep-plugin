@@ -17,15 +17,13 @@ function Connect()
 $conn = Connect();
 if(isset($_POST['submit'])){
 $fname = $conn->real_escape_string($_POST['fname']);
-$phone = $conn->real_escape_string($_POST['phone']);
+$lname = $conn->real_escape_string($_POST['lname']);
 $email = $conn->real_escape_string($_POST['email']);
 $taxi = $conn->real_escape_string($_POST['taxi']);
-$extras = $conn->real_escape_string($_POST['extras']);
-$pplace = $conn->real_escape_string($_POST['pplace']);
-$dpalce = $conn->real_escape_string($_POST['dpalce']);
-$comments = $conn->real_escape_string($_POST['comments']); 
+$extras[] = $conn->real_escape_string($_POST['extras[]']);
+$bio = $conn->real_escape_string($_POST['bio']); 
 
-$query ="INSERT into wp_my_table(fname,phone,email,taxi,extras,pplace,dpalce,comments) VALUES ('$fname','$phone','$email','$taxi,'$extras','$pplace','$dpalce','$comments')";
+$query ="INSERT into wp_my_table(fname,lname,email,taxi,extras[],bio) VALUES ('$fname','$lname','$email','$taxi','$extras[]','$bio')";
 
 echo $query;
 $success = $conn->query($query);

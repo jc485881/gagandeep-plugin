@@ -118,33 +118,31 @@ function process(){
 
 
 //generating table
- function install() {
+ class MyPlugin {
+        static function install() {
            global $wpdb;
-		    require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-           if (count($wpdb->get_var('SHOW TABLE LIKE "wp_custom_plugin"')) == 0 )
+           $table_name = $wpdb->prefix . 'my_table';
  
  $charset_collate = $wpdb->get_charset_collate();
  
- $sql = "CREATE TABLE 'my_table' (
+ $sql = "CREATE TABLE $table_name (
      id mediumint(9) NOT NULL AUTO_INCREMENT,
      time datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
      fname varchar(120) DEFAULT NULL,
-	 phone int(10) DEFAULT NULL, 
+	 lname varchar(120) DEFAULT NULL,
 	 email varchar(120) DEFAULT NULL,
-	 taxi varchar(120) DEFAULT NULL;
-	 extras varchar(120) DEFAULT NULL;
-	 pplace varchar(120) DEFAULT NULL;
-	 dplace varchar(120) DEFAULT NULL;	 
-	 comments varchar(500) DEFAULT NULL,
+	 taxi varchar(120) DEFAULT NULL,
+	 extras[] varchar(120) DEFAULT NULL,
+	 bio varchar(500) DEFAULT NULL,
      UNIQUE KEY id (id)
  ) $charset_collate;";
  
-
+ require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
  dbDelta( $sql );
         }
-    
+    }
  
-    register_activation_hook(__FILE__, array( 'install' ) );
+    register_activation_hook(__FILE__, array( 'MyPlugin', 'install' ) );
 
 function deactivate_table() {
 	  global $wpdb;
@@ -152,85 +150,58 @@ function deactivate_table() {
    }
 	register_deactivation_hook(__FILE__,"deactivate_table");
 
-function registration_form( $fname,$phone,$email,$taxi,$extras,$pplace,$dpalce,$comments ) {
+function registration_form( $fname, $lname, $email, $taxi, $extras[], $bio ) {
 		include_once PLUGIN_DIR_PATH."/style.css";
  
     echo '
-    <form class="myForm" method="get" enctype="application/x-www-form-urlencoded" action="/html/codes/html_form_handler.cfm">
-
-<p>
-<label>Name
-<input type="text" name="fname" required>
-</label> 
-</p>
-
-<p>
-<label>Phone 
-<input type="tel" name="phone">
-</label>
-</p>
-
-<p>
-<label>Email 
-<input type="email" name="email">
-</label>
-</p>
-
-<fieldset>
-<legend>Which taxi do you require?</legend>
-<p><label class="choice"> <input type="radio" name="taxi" required value="car"> Car </label></p>
-<p><label class="choice"> <input type="radio" name="taxi" required value="van"> Van </label></p>
-<p><label class="choice"> <input type="radio" name="taxi" required value="tuktuk"> Tuk Tuk </label></p>
-</fieldset>
-
-<fieldset>
-<legend>Extras</legend>
-<p><label class="choice"> <input type="checkbox" name="extras" value="baby"> Baby Seat </label></p>
-<p><label class="choice"> <input type="checkbox" name="extras" value="wheelchair"> Wheelchair Access </label></p>
-<p><label class="choice"> <input type="checkbox" name="extras" value="tip"> Stock Tip </label></p>
-</fieldset>
+    <form action="/agecare/wp-content/plugins/gagandeep_plugin/process.php" method="post">
 
 
+
+    <div>
+    <label>First Name</label>
+    <input type="text" name="fname" value="">
+    </div>
+     
+    <div>
+    <label>Last Name</label>
+    <input type="text" name="lname" value="">
+    </div>
+     
+    <div>
+    <label>Email</label>
+    <input type="email" name="email" value="">
+    </div>
+	<div>
+		<fieldset>
+			<label>Which taxi do you require?</label>
+			<p><label class="choice"> <input type="radio" name="taxi" required value="car"> Car </label></p>
+			<p><label class="choice"> <input type="radio" name="taxi" required value="van"> Van </label></p>
+			
+		</fieldset>
+	</div>
 	
-<p>
-<label>Pickup Place
-<select id="pickup_place" name="pplace">
-<option value="" selected="selected">Select One</option>
-<option value="office" >Taxi Office</option>
-<option value="town_hall" >Town Hall</option>
-<option value="telepathy" >Well Guess!</option>
-</select>
-</label> 
-</p>	
-
-<p>
-<label>Dropoff Place
-<input type="text" name="dplace" required list="destinations">
-</label>
-
-<datalist id="destinations">
-<option value="Airport">
-<option value="Beach">
-<option value="Fred Flinstones House">
-</datalist>
-</p>
-
-<p>
-<label>Special Instructions
-<textarea name="comments" maxlength="500"></textarea>
-</label>
-</p>
-<input type="submit" name="submit" value="submit"/>
-    
-<p><button>Submit Booking</button></p>
-
-</form>
-    ';
+	<div>
+		<fieldset>
+			<label>extras</label>
+			<p><label class="choice"> <input type="checkbox" name="extras[]" value="baby"> Baby Seat </label></p>
+			<p><label class="choice"> <input type="checkbox" name="extras[]" value="wheelchair"> Wheelchair Access </label></p>
+			<p><label class="choice"> <input type="checkbox" name="extras[]" value="tip"> Stock Tip </label></p>
+		</fieldset>
+	</div>
+     
+    <div>
+    <label>About</label>
+    <textarea name="bio"></textarea>
+    </div>
+    <input type="submit" name="submit" value="submit"/>
+    </form>  
+	';
 }
 
 function custom_registration_shortcode() {
 	ob_start();
-	registration_form( fname,$phone,$email,$taxi,$extras,$pplace,$dpalce,$comments );
+	registration_form( $fname, $lname, $email, $taxi, $extras[], $bio );
 	return ob_get_clean();
 	}
 	add_shortcode( 'cr_custom_registration', 'custom_registration_shortcode' );
