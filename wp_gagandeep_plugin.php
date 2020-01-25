@@ -146,9 +146,13 @@ function process(){
      fname varchar(120) DEFAULT NULL,
 	 lname varchar(120) DEFAULT NULL,
 	 email varchar(120) DEFAULT NULL,
+	 phone int(10) DEFAULT NULL,
 	 taxi varchar(120) DEFAULT NULL,
 	 extras varchar(120) DEFAULT NULL,
 	 B_S_required int(10) DEFAULT NULL,
+	 st_no int(100) DEFAULT NULL,
+	 sT_name varchar(120) DEFAULT NULL,
+	 suburb varchar (120) DEFAULT NULL,
 	 dplace varchar(120) DEFAULT NULL,
 	 comments varchar(500) DEFAULT NULL,
      UNIQUE KEY id (id)
@@ -222,8 +226,8 @@ function registration_form( $fname, $lname, $email, $taxi, $extras, $B_S_require
 							
 							
 							<div class="col-sm-4 form-group">
-							</label><label>NO. of Baby Seats</label>
-			<input style="width:100px; height:40px;" type="number" name="B_S_required" value="" list="nseats">
+							</label><label>NO. of Baby Seats if Required</label>
+			<input style="width:100px; height:40px;" type="number" name="B_S_required" value="" list="nseats" placeholder="MAX:3">
 			<datalist id="nseats">
 			<option value="1">
 			<option value="2">
@@ -233,25 +237,24 @@ function registration_form( $fname, $lname, $email, $taxi, $extras, $B_S_require
 			
 			
 			<div class="row">
-			<label for="pplace"> Pickup Address:</label>
+			<label for="pplace">        Pickup Address:</label>
                             <div class="col-sm-4 form-group">
                                 
-                                <input type="text" class="form-control" id="pplace" name="pplace" maxlength="50" required>
+                                <input type="number" class="form-control" id="pplace" name="st_no" maxlength="50" placeholder="Street No." required>
                             </div>
 							<div class="col-sm-4 form-group">
-							<input type="text" class="form-control" id="pplace" name="pplace" maxlength="50" required>
+							<input type="text" class="form-control" id="pplace" name="sname" maxlength="50" placeholder="Street Name" required>
 							
 							</div>
 							<div class="col-sm-4 form-group">
-							<input type="text" class="form-control" id="pplace" name="pplace" maxlength="50" required>
-							
+							<input type="text" class="form-control" id="pplace" name="suburb" maxlength="50" placeholder="Suburb" required>
 							</div>
                         </div>
 						
 						<div class="row">
                             <div class="col-sm-12 form-group">
                                 <label for="dplace">Dropoff Address:</label>
-								 <input type="text" class="form-control" id="dplace" name="dplace" maxlength="50" required><datalist id="destinations">
+								 <input type="text" class="form-control" id="dplace" name="dplace" maxlength="50" placeholder="Please Enter Your Full Address" required><datalist id="destinations">
 <option value="Airport">
 <option value="Beach">
 <option value="Fred Flinstones House">
@@ -260,6 +263,7 @@ function registration_form( $fname, $lname, $email, $taxi, $extras, $B_S_require
                                </datalist>
                             </div>
                         </div>
+						
                         
                         <div class="row">
                             <div class="col-sm-12 form-group">
