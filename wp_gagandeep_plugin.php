@@ -109,21 +109,21 @@ function registration_form( $fname, $lname, $email, $phone, $taxi, $extras, $B_S
                         <div class="row">
                             <div class="col-sm-6 form-group">
                                 <label for="name"> First Name:</label>
-                                <input type="text" class="form-control" id="firstname" name="fname" maxlength="50" placeholder="john">
+                                <input type="text" class="form-control" id="firstname" name="fname" maxlength="50" placeholder="john" required>
                             </div>
                             <div class="col-sm-6 form-group">
                                 <label for="name"> Last Name:</label>
-                                <input type="text" class="form-control" id="lastname" name="lname" placeholder="cena" maxlength="50">
+                                <input type="text" class="form-control" id="lastname" name="lname" placeholder="smith" maxlength="50" required>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6 form-group">
                                 <label for="email"> Email:</label>
-                                <input type="text" class="form-control" id="email" name="email" placeholder="johncena@gmail.com maxlength="50">
+                                <input type="text" class="form-control" id="email" name="email" placeholder="johnsmith@gmail.com" maxlength="50" required>
                             </div>
                             <div class="col-sm-6 form-group">
                                 <label for="number"> Phone:</label>
-                                <input type="tel" class="form-control" id="phone" name="phone" placeholder="0" required maxlength="10">
+                                <input type="tel" class="form-control" id="phone" name="phone" placeholder="0"  maxlength="10" required>
                             </div>
 							<div class="col-sm-4 form-group">
 							<fieldset>
