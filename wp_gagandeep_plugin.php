@@ -269,12 +269,12 @@ function registration_form( $fname, $lname, $email, $phone, $taxi, $extras, $B_S
                         <div class="row">
                             <div class="col-sm-12 form-group">
                                 <label for="name"> Message:</label>
-                                <textarea class="form-control" type="textarea" id="message" name="message" placeholder="Your Message Here" maxlength="6000" rows="7"></textarea>
+                                <textarea class="form-control" type="textarea" id="message" name="comments" placeholder="Your Message Here" maxlength="6000" rows="7"></textarea>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-12 form-group">
-                                <button type="submit" class="btn btn-lg btn-success btn-block" id="btnContactUs">Post It! </button>
+                                <button type="submit" class="btn btn-lg btn-success btn-block" id="btnContactUs" name="submit" value"submit">Post It! </button>
                             </div>
                         </div>
                     </form>
