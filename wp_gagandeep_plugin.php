@@ -1,87 +1,11 @@
-<!--<html>
-<body>
- CSS 
-<style>
-.myForm {
-font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-font-size: 1em;
-width: 50em;
-padding: 1em;
-border: 0px solid #ccc;
-}
 
-.myForm * {
-box-sizing: border-box;
-}
-
-.myForm fieldset {
-border: none;
-padding: 0;
-}
-
-.myForm legend,
-.myForm label {
-padding: 0;
-font-weight: bold;
-}
-
-.myForm label.choice {
-font-size: 0.9em;
-font-weight: normal;
-}
-
-.myForm label {
-text-align: left;
-display: block;
-}
-
-.myForm input[type="text"],
-.myForm input[type="tel"],
-.myForm input[type="email"],
-.myForm input[type="datetime-local"],
-.myForm select,
-.myForm textarea {
-
-width: 60%;
-border: 1px solid #ccc;
-font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-font-size: 1.5em;
-padding: 0.3em;
-}
-
-.myForm textarea {
-height: 100px;
-}
-
-.myForm input[type="radio"],
-.myForm input[type="checkbox"] {
-margin-left: 40%;
-}
-
-.myForm button {
-padding: 1em;
-border-radius: 0.5em;
-background: #eee;
-border: none;
-font-weight: bold;
-margin-left: 40%;
-margin-top: 1.8em;
-}
-
-.myForm button:hover {
-background: #ccc;
-cursor: pointer;
-}
-</style>
-</body>
-</html>-->
 
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>PHP Contact Form Script With Validation - reusable form</title>
+        
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
         <!-- Optional theme -->
@@ -241,14 +165,14 @@ function registration_form( $fname, $lname, $email, $phone, $taxi, $extras, $B_S
 			<label for="pplace">        Pickup Address:</label>
                             <div class="col-sm-4 form-group">
                                 
-                                <input type="number" class="form-control" id="pplace" name="st_no" maxlength="50" placeholder="Street No." required>
+                                <input type="number" class="form-control" id="st_no" name="st_no" maxlength="50" placeholder="Street No." required>
                             </div>
 							<div class="col-sm-4 form-group">
-							<input type="text" class="form-control" id="pplace" name="st_name" maxlength="50" placeholder="Street Name" required>
+							<input type="text" class="form-control" id="st_name" name="st_name" maxlength="50" placeholder="Street Name" required>
 							
 							</div>
 							<div class="col-sm-4 form-group">
-							<input type="text" class="form-control" id="pplace" name="suburb" maxlength="50" placeholder="Suburb" required>
+							<input type="text" class="form-control" id="suburb" name="suburb" maxlength="50" placeholder="Suburb" required>
 							</div>
                         </div>
 						
@@ -274,15 +198,16 @@ function registration_form( $fname, $lname, $email, $phone, $taxi, $extras, $B_S
                         </div>
                         <div class="row">
                             <div class="col-sm-12 form-group">
-                                <button type="submit" class="btn btn-lg btn-success btn-block" id="btnContactUs" name="submit" value"submit">Post It! </button>
+                                 <input type="submit" name="submit" value="submit"/>
                             </div>
                         </div>
-                    </form>
-                    <div id="success_message" style="width:100%; height:100%; display:none; "> <h3>Sent your message successfully!</h3> </div>
-                    <div id="error_message" style="width:100%; height:100%; display:none; "> <h3>Error</h3> Sorry there was an error sending your form. </div>
-                </div>
-            </div>
-        </div>	';
+					</div>
+				<div>
+			</div>
+						</form>
+                    
+                   	';
+		
 }
 
 function custom_registration_shortcode() {
