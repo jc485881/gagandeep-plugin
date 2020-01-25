@@ -27,9 +27,10 @@ $st_no  = $conn->real_escape_string($_POST['st_no']);
 $st_name  = $conn->real_escape_string($_POST['st_name']);
 $suburb  = $conn->real_escape_string($_POST['suburb']);
 $dplace = $conn->real_escape_string($_POST['dplace']);
+$ptype = $conn->real_escape_string($_POST['ptype']);
 $comments = $conn->real_escape_string($_POST['comments']); 
 
-$query ="INSERT into wp_my_table(fname,lname,email,phone,taxi,extras,B_S_required,st_no,st_name,suburb, dplace, comments) VALUES ('$fname','$lname','$email','$phone','$taxi','$extras','$B_S_required', '$st_no', '$st_name', '$suburb', '$dplace','$comments')";
+$query ="INSERT into wp_my_table(fname,lname,email,phone,taxi,extras,B_S_required,st_no,st_name,suburb, dplace,ptype, comments) VALUES ('$fname','$lname','$email','$phone','$taxi','$extras','$B_S_required', '$st_no', '$st_name', '$suburb', '$dplace','$ptype', '$comments')";
 
 echo $query;
 $success = $conn->query($query);

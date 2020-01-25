@@ -78,6 +78,7 @@ function process(){
 	 st_name varchar(120) DEFAULT NULL,
 	 suburb varchar (120) DEFAULT NULL,
 	 dplace varchar(120) DEFAULT NULL,
+	 ptype varchar(120) DEFAULT NULL,
 	 comments varchar(500) DEFAULT NULL,
      UNIQUE KEY id (id)
  ) $charset_collate;";
@@ -95,7 +96,7 @@ function deactivate_table() {
    }
 	register_deactivation_hook(__FILE__,"deactivate_table");
 
-function registration_form( $fname, $lname, $email, $phone, $taxi, $extras, $B_S_required, $st_no, $st_name, $suburb, $dplace, $comments ) {
+function registration_form( $fname, $lname, $email, $phone, $taxi, $extras, $B_S_required, $st_no, $st_name, $suburb, $dplace, $ptype, $comments ) {
 		
  
     echo '
@@ -189,6 +190,19 @@ function registration_form( $fname, $lname, $email, $phone, $taxi, $extras, $B_S
                             </div>
                         </div>
 						
+							<div class="row">
+                            <div class="col-sm-12 form-group">
+                               <fieldset>
+                                <label for="choice"> Payment Type</label>
+                                
+								<p><label class="choice"> <input type="radio" name="ptype" required value="cash"> Cash                 <input type="radio" name="ptype" required value="card"> Card                 
+								<input type="radio" name="ptype
+								" required value="vouchers">Vouchers</label></p>
+		
+								</fieldset>
+                            </div>
+                        </div>
+						
                         
                         <div class="row">
                             <div class="col-sm-12 form-group">
@@ -212,7 +226,7 @@ function registration_form( $fname, $lname, $email, $phone, $taxi, $extras, $B_S
 
 function custom_registration_shortcode() {
 	ob_start();
-	registration_form( $fname, $lname, $email, $phone, $taxi, $extras, $B_S_required, $st_no, $st_name, $suburb, $dplace, $comments );
+	registration_form( $fname, $lname, $email, $phone, $taxi, $extras, $B_S_required, $st_no, $st_name, $suburb, $dplace, $ptype, $comments );
 	return ob_get_clean();
 	}
 	add_shortcode( 'cr_custom_registration', 'custom_registration_shortcode' );
