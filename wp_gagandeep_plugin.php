@@ -1,6 +1,6 @@
-<html>
+<!--<html>
 <body>
-<!-- CSS -->
+ CSS 
 <style>
 .myForm {
 font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
@@ -74,7 +74,22 @@ cursor: pointer;
 }
 </style>
 </body>
-</html>
+</html>-->
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>PHP Contact Form Script With Validation - reusable form</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <link rel="stylesheet" href="form.css" >
+        <script src="form.js"></script>
+    </head>
 <?php
 
 /*
@@ -153,73 +168,87 @@ function deactivate_table() {
 	register_deactivation_hook(__FILE__,"deactivate_table");
 
 function registration_form( $fname, $lname, $email, $taxi, $extras, $B_S_required, $dplace, $comments ) {
-		include_once PLUGIN_DIR_PATH."/style.css";
+		
  
     echo '
-    <form action="/agecare/wp-content/plugins/gagandeep_plugin/process.php" method="post">
-
-
-
-    <div>
-    <label>First Name</label>
-    <input type="text" name="fname" value="">
-    </div>
-     
-    <div>
-    <label>Last Name</label>
-    <input type="text" name="lname" value="">
-    </div>
-     
-    <div>
-    <label>Email</label>
-    <input type="email" name="email" value="">
-    </div>
-	<div>
-		<fieldset>
-			<label>Which taxi do you require?</label>
-			<p><label class="choice"> <input type="radio" name="taxi" required value="car"> Car </label></p>
+   <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Contact Us</h2> 
+                    <p> Send us your message and we will get back to you as soon as possible </p>
+                    <form role="form" method="post" id="reused_form">
+                        <div class="row">
+                            <div class="col-sm-6 form-group">
+                                <label for="name"> First Name:</label>
+                                <input type="text" class="form-control" id="firstname" name="fname" maxlength="50">
+                            </div>
+                            <div class="col-sm-6 form-group">
+                                <label for="name"> Last Name:</label>
+                                <input type="text" class="form-control" id="lastname" name="lname" maxlength="50">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 form-group">
+                                <label for="email"> Email:</label>
+                                <input type="text" class="form-control" id="email" name="email" maxlength="50">
+                            </div>
+                            <div class="col-sm-6 form-group">
+                                <label for="number"> Phone:</label>
+                                <input type="tel" class="form-control" id="phone" name="phone" required maxlength="10">
+                            </div>
+							<div class="col-sm-4 form-group">
+							<fieldset>
+                                <label for="choice"> Which taxi do you require?</label>
+                                
+								<p><label class="choice"> <input type="radio" name="taxi" required value="car"> Car </label></p>
 			<p><label class="choice"> <input type="radio" name="taxi" required value="van"> Van </label></p>
+			<p><label class="choice"> <input type="radio" name="taxi" required value="van"> Van </label></p>
+								</fieldset>
+                            </div>
+							
+							 
+							<div class="col-sm-4 form-group">
+							<fieldset>
+                                <label for="choice"> Extras</label>
+                                <p><label class="choice"> <input type="radio" name="extras" required value="Baby Seat"> Baby Seat 
 			
-		</fieldset>
-	</div>
-	
-	<div>
-		<fieldset>
-			<label>Extras</label>
-			<p><label class="choice"> <input type="radio" name="extras" required value="Baby Seat"> Baby Seat </label><label>NO. of Baby Seats</label>
+			<p><label class="choice"> <input type="radio" name="extras" required value="Wheelchair"> Wheelchair </label></p>
+			<p><label class="choice"> <input type="radio" name="extras" required value="Stock tip"> Stock tip </label></p>
+								</fieldset>
+                            </div>
+							
+							
+							
+							
+							
+							<div class="col-sm-4 form-group">
+							</label><label>NO. of Baby Seats</label>
 			<input style="width:100px; height:40px;" type="number" name="B_S_required" value="" list="nseats">
 			<datalist id="nseats">
 			<option value="1">
 			<option value="2">
 			<option value="3">
 			</datalist></p>
+			</div></div>
 			
-			<p><label class="choice"> <input type="radio" name="extras" required value="Wheelchair"> Wheelchair </label></p>
-			<p><label class="choice"> <input type="radio" name="extras" required value="Stock tip"> Stock tip </label></p>
-		
-		</fieldset>
-	</div>
-	<p>
-<label>Dropoff Place
-<input type="text" name="dplace" required list="destinations">
-</label>
-
-<datalist id="destinations">
-<option value="Airport">
-<option value="Beach">
-<option value="Fred Flinstones House">
-
-</datalist>
-</p>
-	
-     
-    <div>
-    <label>Any Other Comments/Information</label>
-    <textarea name="comments"></textarea>
-    </div>
-    <input type="submit" name="submit" value="submit"/>
-    </form>  
-	';
+                        
+                        <div class="row">
+                            <div class="col-sm-12 form-group">
+                                <label for="name"> Message:</label>
+                                <textarea class="form-control" type="textarea" id="message" name="message" placeholder="Your Message Here" maxlength="6000" rows="7"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 form-group">
+                                <button type="submit" class="btn btn-lg btn-success btn-block" id="btnContactUs">Post It! </button>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="success_message" style="width:100%; height:100%; display:none; "> <h3>Sent your message successfully!</h3> </div>
+                    <div id="error_message" style="width:100%; height:100%; display:none; "> <h3>Error</h3> Sorry there was an error sending your form. </div>
+                </div>
+            </div>
+        </div>	';
 }
 
 function custom_registration_shortcode() {
