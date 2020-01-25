@@ -233,10 +233,19 @@ function registration_form( $fname, $lname, $email, $taxi, $extras, $B_S_require
 			
 			
 			<div class="row">
-                            <div class="col-sm-12 form-group">
-                                <label for="dplace"> Pickup Address:</label>
+			<label for="pplace"> Pickup Address:</label>
+                            <div class="col-sm-4 form-group">
+                                
                                 <input type="text" class="form-control" id="pplace" name="pplace" maxlength="50" required>
                             </div>
+							<div class="col-sm-4 form-group">
+							<input type="text" class="form-control" id="pplace" name="pplace" maxlength="50" required>
+							
+							</div>
+							<div class="col-sm-4 form-group">
+							<input type="text" class="form-control" id="pplace" name="pplace" maxlength="50" required>
+							
+							</div>
                         </div>
 						
 						<div class="row">
