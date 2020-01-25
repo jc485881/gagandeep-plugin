@@ -231,6 +231,20 @@ function registration_form( $fname, $lname, $email, $taxi, $extras, $B_S_require
 			</datalist></p>
 			</div></div>
 			
+			
+			<div class="row">
+                            <div class="col-sm-12 form-group">
+                                <label for="email"> Pickup Address:</label>
+                                <input type="text" class="form-control" id="pplace" name="pplace" maxlength="50" required>
+                            </div>
+                        </div>
+						
+						<div class="row">
+                            <div class="col-sm-12 form-group">
+                                <label for="email">Dropoff Address:</label>
+                                <input type="text" class="form-control" id="dplace" name="dplace" maxlength="50" required>
+                            </div>
+                        </div>
                         
                         <div class="row">
                             <div class="col-sm-12 form-group">
