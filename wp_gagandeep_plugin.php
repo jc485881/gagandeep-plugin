@@ -124,7 +124,7 @@ function registration_form( $fname, $lname, $email, $phone, $taxi, $extras, $B_S
                             </div>
                             <div class="col-sm-6 form-group">
                                 <label for="number"> Phone:</label>
-                                <input type="tel" class="form-control" id="phone" name="phone" placeholder="0"  maxlength="10" required>
+                                <input type="tel" class="form-control" id="phone" name="phone" placeholder="10 DIGITS"  maxlength="10" required>
                             </div>
 							<div class="col-sm-4 form-group">
 							<fieldset>
