@@ -109,21 +109,21 @@ function registration_form( $fname, $lname, $email, $phone, $taxi, $extras, $B_S
                         <div class="row">
                             <div class="col-sm-6 form-group">
                                 <label for="name"> First Name:</label>
-                                <input type="text" class="form-control" id="firstname" name="fname" maxlength="50">
+                                <input type="text" class="form-control" id="firstname" name="fname" maxlength="50" placeholder="john">
                             </div>
                             <div class="col-sm-6 form-group">
                                 <label for="name"> Last Name:</label>
-                                <input type="text" class="form-control" id="lastname" name="lname" maxlength="50">
+                                <input type="text" class="form-control" id="lastname" name="lname" placeholder="cena" maxlength="50">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6 form-group">
                                 <label for="email"> Email:</label>
-                                <input type="text" class="form-control" id="email" name="email" maxlength="50">
+                                <input type="text" class="form-control" id="email" name="email" placeholder="johncena@gmail.com maxlength="50">
                             </div>
                             <div class="col-sm-6 form-group">
                                 <label for="number"> Phone:</label>
-                                <input type="tel" class="form-control" id="phone" name="phone" required maxlength="10">
+                                <input type="tel" class="form-control" id="phone" name="phone" placeholder="0" required maxlength="10">
                             </div>
 							<div class="col-sm-4 form-group">
 							<fieldset>
