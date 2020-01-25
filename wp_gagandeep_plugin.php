@@ -151,7 +151,7 @@ function process(){
 	 extras varchar(120) DEFAULT NULL,
 	 B_S_required int(10) DEFAULT NULL,
 	 st_no int(100) DEFAULT NULL,
-	 sT_name varchar(120) DEFAULT NULL,
+	 st_name varchar(120) DEFAULT NULL,
 	 suburb varchar (120) DEFAULT NULL,
 	 dplace varchar(120) DEFAULT NULL,
 	 comments varchar(500) DEFAULT NULL,
@@ -171,16 +171,17 @@ function deactivate_table() {
    }
 	register_deactivation_hook(__FILE__,"deactivate_table");
 
-function registration_form( $fname, $lname, $email, $taxi, $extras, $B_S_required, $dplace, $comments ) {
+function registration_form( $fname, $lname, $email, $phone, $taxi, $extras, $B_S_required, $st_no, $st_name, $suburb, $dplace, $comments ) {
 		
  
     echo '
+	<form action="/agecare/wp-content/plugins/gagandeep_plugin/process.php" method="post">
    <div class="container">
             <div class="row">
                 <div class="col-md-6">
                     <h2>Contact Us</h2> 
                     <p> Send us your message and we will get back to you as soon as possible </p>
-                    <form role="form" method="post" id="reused_form">
+                    
                         <div class="row">
                             <div class="col-sm-6 form-group">
                                 <label for="name"> First Name:</label>
@@ -243,7 +244,7 @@ function registration_form( $fname, $lname, $email, $taxi, $extras, $B_S_require
                                 <input type="number" class="form-control" id="pplace" name="st_no" maxlength="50" placeholder="Street No." required>
                             </div>
 							<div class="col-sm-4 form-group">
-							<input type="text" class="form-control" id="pplace" name="sname" maxlength="50" placeholder="Street Name" required>
+							<input type="text" class="form-control" id="pplace" name="st_name" maxlength="50" placeholder="Street Name" required>
 							
 							</div>
 							<div class="col-sm-4 form-group">
@@ -286,7 +287,7 @@ function registration_form( $fname, $lname, $email, $taxi, $extras, $B_S_require
 
 function custom_registration_shortcode() {
 	ob_start();
-	registration_form( $fname, $lname, $email, $taxi, $extras,$B_S_required, $dplace, $comments );
+	registration_form( $fname, $lname, $email, $phone, $taxi, $extras, $B_S_required, $st_no, $st_name, $suburb, $dplace, $comments );
 	return ob_get_clean();
 	}
 	add_shortcode( 'cr_custom_registration', 'custom_registration_shortcode' );
