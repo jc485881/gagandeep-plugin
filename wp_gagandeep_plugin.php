@@ -104,8 +104,8 @@ function registration_form( $fname, $lname, $email, $phone, $taxi, $extras, $B_S
    <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h2>Contact Us</h2> 
-                    <p> Send us your message and we will get back to you as soon as possible </p>
+                    <h1>Online Cab Booking Form</h1> 
+                    <p> Send us your message with the details and we will get back to you as soon as possible </p>
                     
                         <div class="row">
                             <div class="col-sm-6 form-group">
