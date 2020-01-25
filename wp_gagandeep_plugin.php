@@ -241,13 +241,14 @@ function registration_form( $fname, $lname, $email, $taxi, $extras, $B_S_require
 						
 						<div class="row">
                             <div class="col-sm-12 form-group">
-                                <label for="dplace">Dropoff Address:</label><datalist id="destinations">
+                                <label for="dplace">Dropoff Address:</label>
+								 <input type="text" class="form-control" id="dplace" name="dplace" maxlength="50" required><datalist id="destinations">
 <option value="Airport">
 <option value="Beach">
 <option value="Fred Flinstones House">
 
 
-                                <input type="text" class="form-control" id="dplace" name="dplace" maxlength="50" required></datalist>
+                               </datalist>
                             </div>
                         </div>
                         
