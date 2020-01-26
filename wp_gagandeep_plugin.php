@@ -97,7 +97,7 @@ function registration_form( $fname, $lname, $email, $phone, $taxi, $extras, $B_S
 		
  
     echo '
-	<form  action="/wordpress2/wp-content/plugins/gagandeep_plugin/process.php" method="post">
+	<form  action="/wordpress/wp-content/plugins/gagandeep_plugin/process.php" method="post">
    <div class="container">
             <div class="row">
                 <div class="col-md-6">
