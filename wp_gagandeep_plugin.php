@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="form.css" >
         <script src="form.js"></script>
     </head>
+</html>
 <?php
 
 /*
