@@ -91,6 +91,7 @@ function process(){
     register_activation_hook(__FILE__, array( 'MyPlugin', 'install' ) );
 
 function deactivate_table() {
+	//uninstall mysql code or delete table from database or from phpmyadmin
 	  global $wpdb;
 	  $wpdb->query("DROP table IF Exists wp_my_table");
    }
@@ -100,7 +101,7 @@ function registration_form( $fname, $lname, $email, $phone, $taxi, $extras, $B_S
 		
  
     echo '
-	<form action="/agecare/wp-content/plugins/gagandeep_plugin/process.php" method="post">
+	<form  action="/agecare/wp-content/plugins/gagandeep_plugin/process.php" method="post">
    <div class="container">
             <div class="row">
                 <div class="col-md-6">
