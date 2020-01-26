@@ -11,8 +11,7 @@
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <link rel="stylesheet" href="form.css" >
-        <script src="form.js"></script>
+        
     </head>
 </html>
 <?php
@@ -33,17 +32,13 @@ define("PLUGIN_URL",plugins_url());
 define ("PLUGIN_VERSION","1.0");
 
 
-
-
-
 function add_my_custom_menu() {
-    add_menu_page("gagandeep_pluginform",
-	"gagandeep_plugin Form",
-	"manage_options", 
-	"gagandeep_pluginplugin",
-	"gagandeep_plugin_admin_view",
-	"dashicon-dashboard",3);
-	}
+    add_menu_page("gagandeepplugin", "gagandeep Plugin", "manage_options", "gagandeepplugin","gagandeep_plugin_admin_view","dashicon-dashboard",11);
+    
+}
+
+
+
 add_action("admin_menu", "add_my_custom_menu");
 
 function gagandeep_plugin_admin_view(){
@@ -232,3 +227,4 @@ function custom_registration_shortcode() {
 	return ob_get_clean();
 	}
 	add_shortcode( 'cr_custom_registration', 'custom_registration_shortcode' );
+?>
